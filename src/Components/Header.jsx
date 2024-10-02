@@ -20,7 +20,7 @@ const Header = () => {
       </>
     );
     return (
-      <div className="w-full shadow-lg fixed z-10">
+      <div className="w-full shadow-lg fixed">
         <div className="navbar bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
@@ -46,18 +46,19 @@ const Header = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold"
               >
                 {navLinks}
               </ul>
             </div>
-            <Link><img className="w-full h-16" src={logo} alt="" /></Link>
+            <Link><img className="w-full h-7 md:h-16" src={logo} alt="" /></Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+            <ul className="menu menu-horizontal px-1 font-bold">{navLinks}</ul>
           </div>
-          <div className="navbar-end">
-            <a className="btn">Button</a>
+          <div className="navbar-end space-x-2">
+            <Link className="">Logout</Link>
+            <Link className="">SignIn</Link>
           </div>
         </div>
       </div>
