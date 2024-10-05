@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
@@ -9,7 +9,12 @@ import { toast } from "react-toastify";
 
 const Login = () => {
     const {errorMessage, setErrorMessage} = useState("")
-    const { userLogin } = useContext(AuthContext);
+    const { userLogin, userLoginWithGoogle } = useContext(AuthContext);
+    const location = useLocation()
+
+    console.log(location)
+
+    const navigate = useNavigate()
 
 
     const handleLogin = (e) =>{
@@ -24,11 +29,25 @@ const Login = () => {
         userLogin(email, password)
         .then(result=>{
             toast("Login Successfully")
+            navigate(location?.state ? location.state : "/")
+            
+
         })
         .then(error=>{
             setErrorMessage("Email and password doesn't match")
         })
 
+    }
+
+    const handelLoginWithGoogle= () =>{
+        userLoginWithGoogle()
+        .then(result =>{
+            toast("Login Successfully")
+            navigate(location?.state ? location.state : "/");
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
 
 
@@ -82,17 +101,19 @@ const Login = () => {
                   <button className="btn bg-pink-500 text-black font-bold">
                     Login
                   </button>
-                  <button className="btn  bg-pink-500 text-black font-bold">
-                    {" "}
-                    <FcGoogle /> Login with Google
-                  </button>
-                  <button className="btn bg-pink-500 text-black font-bold">
-                    {" "}
-                    <FaGithub />
-                    Login with Github
-                  </button>
                 </div>
               </form>
+              <div className="flex flex-col justify-center p-7  space-y-3">
+                <button onClick={handelLoginWithGoogle} className="btn  bg-pink-500 text-black font-bold">
+                  {" "}
+                  <FcGoogle /> Login with Google
+                </button>
+                <button className="btn bg-pink-500 text-black font-bold">
+                  {" "}
+                  <FaGithub />
+                  Login with Github
+                </button>
+              </div>
             </div>
           </div>
         </div>

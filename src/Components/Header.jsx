@@ -2,10 +2,26 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/arts_crafts_images01.png"
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import dummyUserImage from "../../src/assets/images/istockphoto-1337144146-612x612.jpg"
 
 
 const Header = () => {
-  const {user} = useContext(AuthContext)
+  const { user, userLogout } = useContext(AuthContext);
+
+  console.log(user)
+
+  const handelLogout = () =>{
+    userLogout()
+    .then(result=>{
+      toast("Logout Successfully")
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+
+  }
     const navLinks = (
       <>
         <li>
@@ -15,7 +31,7 @@ const Header = () => {
           <NavLink to={'/allArtCart'}>All Art & craft Items</NavLink>
         </li>
         <li>
-          <NavLink to={'/addCartItem'}>Add Craft Item</NavLink>
+          <NavLink to={'/addCraftItem'}>Add Craft Item</NavLink>
         </li>
         <li>
           <NavLink to={'/myArtCraftList'}>My Art&Craft List</NavLink>
@@ -63,19 +79,27 @@ const Header = () => {
           </div>
           <div className="navbar-end space-x-2">
             {user ? (
-              <Button
-                className="btn btn-secondary text-black font-bold"
-              >
-                LogOut
-              </Button>
+              <>
+                <img
+                  className="w-10 h-10 rounded-full"
+                  src={user.photoURL ? user.photoURL : dummyUserImage}
+                  alt={user.displayName}
+                />
+                <button
+                  onClick={handelLogout}
+                  className="btn btn-secondary text-black font-bold"
+                >
+                  LogOut
+                </button>
+              </>
             ) : (
-              <Link to={"/login"}
+              <Link
+                to={"/login"}
                 className="btn btn-secondary text-black font-bold"
               >
                 LogIn
               </Link>
             )}
-            
           </div>
         </div>
       </div>

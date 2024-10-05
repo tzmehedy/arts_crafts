@@ -15,9 +15,7 @@ const Home = () => {
       <div>
         {/* Hero section */}
 
-        {
-          user
-        }
+        
         <div>
           <div className="carousel w-full h-[calc(100vh-150px)]">
             <div
