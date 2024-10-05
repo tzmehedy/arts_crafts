@@ -57,8 +57,7 @@ const Header = () => {
             <ul className="menu menu-horizontal px-1 font-bold">{navLinks}</ul>
           </div>
           <div className="navbar-end space-x-2">
-            <Link className="">Logout</Link>
-            <Link className="">SignIn</Link>
+            <Link to={"/login"} className="btn btn-secondary text-black font-bold">LogIn</Link>
           </div>
         </div>
       </div>
