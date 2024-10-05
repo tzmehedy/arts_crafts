@@ -9,7 +9,8 @@ import { toast } from "react-toastify";
 
 const Login = () => {
     const {errorMessage, setErrorMessage} = useState("")
-    const { userLogin, userLoginWithGoogle } = useContext(AuthContext);
+    const { userLogin, userLoginWithGoogle, userLoginWithGithub } =
+      useContext(AuthContext);
     const location = useLocation()
 
     console.log(location)
@@ -43,6 +44,17 @@ const Login = () => {
         userLoginWithGoogle()
         .then(result =>{
             toast("Login Successfully")
+            navigate(location?.state ? location.state : "/");
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
+
+    const handelLoginWithGithub = () =>{
+        userLoginWithGithub()
+        .then(result=>{
+            toast("Login Successfully");
             navigate(location?.state ? location.state : "/");
         })
         .catch(error=>{
@@ -104,11 +116,17 @@ const Login = () => {
                 </div>
               </form>
               <div className="flex flex-col justify-center p-7  space-y-3">
-                <button onClick={handelLoginWithGoogle} className="btn  bg-pink-500 text-black font-bold">
+                <button
+                  onClick={handelLoginWithGoogle}
+                  className="btn  bg-pink-500 text-black font-bold"
+                >
                   {" "}
                   <FcGoogle /> Login with Google
                 </button>
-                <button className="btn bg-pink-500 text-black font-bold">
+                <button
+                  onClick={handelLoginWithGithub}
+                  className="btn bg-pink-500 text-black font-bold"
+                >
                   {" "}
                   <FaGithub />
                   Login with Github

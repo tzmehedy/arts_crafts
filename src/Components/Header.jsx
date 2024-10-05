@@ -82,8 +82,9 @@ const Header = () => {
               <>
                 <img
                   className="w-10 h-10 rounded-full"
+                  title={user.displayName}
                   src={user.photoURL ? user.photoURL : dummyUserImage}
-                  alt={user.displayName}
+                  alt=""
                 />
                 <button
                   onClick={handelLogout}
