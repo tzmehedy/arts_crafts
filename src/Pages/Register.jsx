@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye, FaRegEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const [errorMessage, setErrorMessage] = useState("")
     const [showPassword, setShowPassword] = useState(false)
+
+    const {createUser} = useContext(AuthContext)
 
     const handelRegister = (e) =>{
         e.preventDefault()
@@ -17,6 +22,9 @@ const Register = () => {
         const email = form.email.value
         const password = form.password.value
         const photo = form.photo.value
+
+
+        console.log(name, email, password, photo)
 
         if (!/[A-Z]/.test(password)) {
             setErrorMessage("The password should be Uppercase")
@@ -31,7 +39,17 @@ const Register = () => {
         else if(password.length<6){
             setErrorMessage("The password should be at least 6 character")
             return
-        }     
+        } 
+
+        createUser(email, password)
+        .then(result=>{
+            toast("Registration Successfully")
+            form.reset()
+        })
+        .catch(error =>{
+            toast("Already exist")
+        })
+        
     }
     return (
       <div>
@@ -41,7 +59,7 @@ const Register = () => {
               <h1 className="text-5xl font-bold">Register Now!</h1>
             </div>
             <div className="bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-              <form className="card-body">
+              <form onSubmit={handelRegister} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>
@@ -70,13 +88,16 @@ const Register = () => {
                   </label>
                   <div className="flex relative">
                     <input
-                      type={ showPassword ? "text" : "password"}
+                      type={showPassword ? "text" : "password"}
                       name="password"
                       placeholder="password"
                       className="input input-bordered w-full"
                     />
 
-                    <span onClick={()=>setShowPassword(!showPassword)} className="absolute right-2 top-4 cursor-pointer">
+                    <span
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-2 top-4 cursor-pointer"
+                    >
                       {showPassword ? (
                         <FaRegEyeSlash></FaRegEyeSlash>
                       ) : (
@@ -110,10 +131,7 @@ const Register = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button
-                    onClick={handelRegister}
-                    className="btn bg-pink-500 text-black font-bold"
-                  >
+                  <button className="btn bg-pink-500 text-black font-bold">
                     Register
                   </button>
                 </div>
