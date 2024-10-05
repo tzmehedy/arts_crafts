@@ -1,3 +1,4 @@
+import { useContext } from "react"
 import bgslider from "../assets/images/arts_crafts_images04.png"
 import sliderImage1 from "../assets/images/arts_crafts_images06.png"
 import sliderImage2 from "../assets/images/arts_crafts_images07.png"
@@ -5,11 +6,18 @@ import sliderImage3 from "../assets/images/arts_crafts_images09.jpg"
 import sliderImage4 from "../assets/images/arts_crafts_images10.jpg"
 
 import "animate.css";
+import { AuthContext } from "../AuthProvider/AuthProvider"
 
 const Home = () => {
+
+  const {user} = useContext(AuthContext)
     return (
       <div>
         {/* Hero section */}
+
+        {
+          user
+        }
         <div>
           <div className="carousel w-full h-[calc(100vh-150px)]">
             <div
