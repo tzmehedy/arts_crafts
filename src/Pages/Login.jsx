@@ -47,12 +47,14 @@ const Login = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6 space-y-2">
-                  <button className="btn btn-secondary text-black font-bold">Login</button>
-                  <button className="btn btn-secondary  text-black font-bold">
+                  <button className="btn bg-pink-500 text-black font-bold">
+                    Login
+                  </button>
+                  <button className="btn  bg-pink-500 text-black font-bold">
                     {" "}
                     <FcGoogle /> Login with Google
                   </button>
-                  <button className="btn btn-secondary text-black font-bold">
+                  <button className="btn bg-pink-500 text-black font-bold">
                     {" "}
                     <FaGithub />
                     Login with Github
