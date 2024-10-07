@@ -2,9 +2,116 @@ import React from 'react';
 
 const AddCraft = () => {
     return (
-        <div>
-                <h1>This is add craft page</h1>
-        </div>
+      <div className="bg-gray-200 p-10 m-2 md:m-20">
+        <h1 className="text-center font-bold text-2xl">Add Your craft items</h1>
+
+        <form>
+          <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 font-bold mt-10">
+            <div className="w-1/2">
+              <p>Name</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Name"
+                name="name"
+                id=""
+              />
+            </div>
+            <div className="w-1/2">
+              <p>Sub-Category Name</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Sub-Category Name"
+                name="subCategoryName"
+                id=""
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 font-bold">
+            <div className="w-1/2">
+              <p>Description</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Description"
+                name="description"
+                id=""
+              />
+            </div>
+            <div className="w-1/2">
+              <p>Price</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Price"
+                name="price"
+                id=""
+              />
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 font-bold">
+            <div className="w-1/2">
+              <p>Rating</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Rating"
+                name="rating"
+                id=""
+              />
+            </div>
+            <div className="w-1/2">
+              <p>Customization</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Customization"
+                name="customization"
+                id=""
+              />
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 font-bold">
+            <div className="w-1/2">
+              <p>Processing Time</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Processing Time"
+                name="processingTime"
+                id=""
+              />
+            </div>
+            <div className="w-1/2">
+              <p>Stock Status</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Stock Status"
+                name="stockStatus"
+                id=""
+              />
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 font-bold">
+            <div className="w-full">
+              <p>Photo URL</p>
+              <input
+                className="w-full border-2 px-3 py-2 border-gray-400"
+                type="text"
+                placeholder="Photo URL"
+                name="photoUrl"
+                id=""
+              />
+            </div>
+          </div>
+          <div className="mt-5">
+            <button className='btn btn-secondary w-full font-bold text-black'>Add Craft Item</button>
+          </div>
+        </form>
+      </div>
     );
 };
 
