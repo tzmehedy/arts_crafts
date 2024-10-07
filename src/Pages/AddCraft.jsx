@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const AddCraft = () => {
 
@@ -31,7 +33,10 @@ const AddCraft = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            if(data.insertedId){
+                form.reset()
+                toast("Successfully added")
+            }
         })
     }
 
