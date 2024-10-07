@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const AddCraft = () => {
+
+    const {user} = useContext(AuthContext)
+
+
 
     const handelAddCrafts = (e) =>{
         e.preventDefault()
@@ -18,10 +23,20 @@ const AddCraft = () => {
         const processingTime = form.processingTime.value
         const stockStatus = form.stockStatus.value
         const photoUrl = form.photoUrl.value
+        const email = user.email
 
         const craftInfo = {
-            name, subCategory, description, price, rating, customization, processingTime, stockStatus, photoUrl
-        }
+          name,
+          subCategory,
+          description,
+          price,
+          rating,
+          customization,
+          processingTime,
+          stockStatus,
+          photoUrl,
+          email,
+        };
         console.log(craftInfo)
 
         fetch("http://localhost:5000/addCraft", {

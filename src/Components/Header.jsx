@@ -25,16 +25,16 @@ const Header = () => {
     const navLinks = (
       <>
         <li>
-          <NavLink to={'/'}>Home</NavLink>
+          <NavLink to={"/"}>Home</NavLink>
         </li>
         <li>
-          <NavLink to={'/allArtCart'}>All Art & craft Items</NavLink>
+          <NavLink to={"/allArtsAndCrafts"}>All Art & craft Items</NavLink>
         </li>
         <li>
-          <NavLink to={'/addCraftItem'}>Add Craft Item</NavLink>
+          <NavLink to={"/addCraftItem"}>Add Craft Item</NavLink>
         </li>
         <li>
-          <NavLink to={'/myArtCraftList'}>My Art&Craft List</NavLink>
+          <NavLink to={"/myArtCraftList"}>My Art&Craft List</NavLink>
         </li>
       </>
     );
