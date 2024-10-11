@@ -1,6 +1,7 @@
-import React from 'react';
+
 import { useLoaderData } from 'react-router-dom';
 import AllArtsCraftsCard from '../Components/AllArtsCraftsCard';
+
 
 const AllArtsCrafts = () => {
     const allArtsCrafts = useLoaderData()

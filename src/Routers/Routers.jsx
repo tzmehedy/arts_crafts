@@ -8,6 +8,7 @@ import AddCraft from "../Pages/AddCraft";
 import MyArtCraftList from "../Pages/MyArtCraftList";
 import AllArtsCrafts from "../Pages/AllArtsCrafts";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
             <MyArtCraftList></MyArtCraftList>
           </PrivateRouter>
         ),
+        
       },
       {
         path: "/allArtsAndCrafts",
