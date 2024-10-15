@@ -1,12 +1,52 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Update = () => {
     const artAndCraftData = useLoaderData()
 
 
 
-    const handelUpdateCrafts = ()=>{
+    const handelUpdateCrafts = (e)=>{
+        e.preventDefault()
+        const form = e.target;
+
+        const name = form.name.value;
+        const subCategory = form.subCategoryName.value;
+        const description = form.description.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const customization = form.customization.value;
+        const processingTime = form.processingTime.value;
+        const stockStatus = form.stockStatus.value;
+        const photoUrl = form.photoUrl.value;
+
+        const craftInfo = {
+          name,
+          subCategory,
+          description,
+          price,
+          rating,
+          customization,
+          processingTime,
+          stockStatus,
+          photoUrl,
+         
+        };
+
+        fetch(`http://localhost:5000/update/${artAndCraftData._id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(craftInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if(data.modifiedCount===1){
+                toast("Update Craft Info successfully")
+            }
+          });
 
     }
     return (
