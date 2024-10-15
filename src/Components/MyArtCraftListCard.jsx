@@ -1,6 +1,7 @@
 import React from 'react';
 import { CiEdit } from 'react-icons/ci';
 import { MdDelete } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 import Swal from "sweetalert2";
 
 const MyArtCraftListCard = ({
@@ -64,10 +65,12 @@ const MyArtCraftListCard = ({
           <h2 className="card-title">Name: {name}</h2>
           <p>Sub-Category: {subCategory}</p>
           <div className="card-actions justify-end gap-5">
-            <button className="">
-              {" "}
-              <CiEdit />
-            </button>
+            <Link to={`/update/${_id}`}>
+              <button className="">
+                {" "}
+                <CiEdit />
+              </button>
+            </Link>
             <button onClick={handelDelete} className="">
               {" "}
               <MdDelete />

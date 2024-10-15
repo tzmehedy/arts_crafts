@@ -7,6 +7,7 @@ import PrivateRouter from "./PrivateRouter";
 import AddCraft from "../Pages/AddCraft";
 import MyArtCraftList from "../Pages/MyArtCraftList";
 import AllArtsCrafts from "../Pages/AllArtsCrafts";
+import Update from "../Pages/Update";
 
 
 const router = createBrowserRouter([
@@ -41,12 +42,17 @@ const router = createBrowserRouter([
             <MyArtCraftList></MyArtCraftList>
           </PrivateRouter>
         ),
-        
       },
       {
         path: "/allArtsAndCrafts",
         element: <AllArtsCrafts></AllArtsCrafts>,
         loader: () => fetch("http://localhost:5000/allArtsCrafts"),
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+      loader: ({params}) =>
+          fetch(`http://localhost:5000/update/${params.id}`),
       },
     ],
   },
