@@ -3,21 +3,25 @@ import { CiEdit } from 'react-icons/ci';
 import { MdDelete } from 'react-icons/md';
 import Swal from "sweetalert2";
 
-const MyArtCraftListCard = ({ artCraftList }) => {
-    const {
-      _id,
-      name,
-      subCategory,
-      description,
-      price,
-      rating,
-      customization,
-      processingTime,
-      stockStatus,
-      photoUrl,
-    } = artCraftList;
+const MyArtCraftListCard = ({
+  artCraftList,
+  artCraftLists,
+  setArtCraftLists,
+}) => {
+  const {
+    _id,
+    name,
+    subCategory,
+    description,
+    price,
+    rating,
+    customization,
+    processingTime,
+    stockStatus,
+    photoUrl,
+  } = artCraftList;
 
-  const handelDelete =()=>{
+  const handelDelete = () => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -33,7 +37,13 @@ const MyArtCraftListCard = ({ artCraftList }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            if (data.deletedCount === 1) {
+              const remainingArtCraftLists = artCraftLists.filter(
+                artCraftList => artCraftList._id !== _id
+              );
+              console.log(remainingArtCraftLists)
+              setArtCraftLists(remainingArtCraftLists);
+            }
           });
         Swal.fire({
           title: "Deleted!",
@@ -42,17 +52,8 @@ const MyArtCraftListCard = ({ artCraftList }) => {
         });
       }
     });
+  };
 
-
-
-
-
-    
-
-  }
-
-
-    
   return (
     <div>
       <div className=" bg-base-300 max-w-96 shadow-xl mt-5 rounded-2xl p-5">

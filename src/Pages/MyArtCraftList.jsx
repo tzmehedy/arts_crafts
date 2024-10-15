@@ -5,7 +5,11 @@ import MyArtCraftListCard from '../Components/MyArtCraftListCard';
 
 const MyArtCraftList = () => {
     const [ artCraftLists, setArtCraftLists ] = useState([]);
+
+    
+
     const { user } = useContext(AuthContext);
+
 
     console.log(user.email);
 
@@ -24,10 +28,12 @@ const MyArtCraftList = () => {
           Your Arts & Crafts List
         </h1>
 
-        <div className='m-10 grid grid-cols-1 md:grid-cols-3'>
+        <div className="m-10 grid grid-cols-1 md:grid-cols-3">
           {artCraftLists.map((artCraftList) => (
             <MyArtCraftListCard
               key={artCraftList._id}
+              artCraftLists={artCraftLists}
+              setArtCraftLists={setArtCraftLists}
               artCraftList={artCraftList}
             ></MyArtCraftListCard>
           ))}
