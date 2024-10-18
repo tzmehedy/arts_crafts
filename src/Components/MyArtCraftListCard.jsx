@@ -59,11 +59,13 @@ const MyArtCraftListCard = ({
     <div>
       <div className=" bg-base-300 max-w-96 shadow-xl mt-5 rounded-2xl p-5">
         <figure>
-          <img className="rounded-2xl" src={photoUrl} />
+          <img className="h-48 w-full rounded-2xl" src={photoUrl} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">Name: {name}</h2>
-          <p>Sub-Category: {subCategory}</p>
+          <p>Price: {price}</p>
+          <p>Rating: {rating}</p>
+          <p>Stock Status: {stockStatus}</p>
           <div className="card-actions justify-end gap-5">
             <Link to={`/update/${_id}`}>
               <button className="">

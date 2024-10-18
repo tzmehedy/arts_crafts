@@ -15,7 +15,7 @@ const AllArtsCraftsCard = ({ artAndCraft }) => {
     <div>
       <div className=" bg-base-300 max-w-96 shadow-xl mt-5 rounded-2xl p-5">
         <figure>
-          <img className='rounded-2xl' src={photoUrl} />
+          <img className='w-full h-64 rounded-2xl' src={photoUrl} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">Name: {name}</h2>

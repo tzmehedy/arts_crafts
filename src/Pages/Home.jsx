@@ -7,6 +7,7 @@ import sliderImage4 from "../assets/images/arts_crafts_images10.jpg"
 
 import "animate.css";
 import { AuthContext } from "../AuthProvider/AuthProvider"
+import ArtAndCategorySection from "../Components/ArtAndCategorySection"
 
 const Home = () => {
 
@@ -130,6 +131,10 @@ const Home = () => {
             </a>
           </div>
         </div>
+
+        {/* Art & Category Section */}
+
+        <ArtAndCategorySection></ArtAndCategorySection>
       </div>
     );
 };
