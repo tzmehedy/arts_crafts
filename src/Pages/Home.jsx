@@ -8,6 +8,7 @@ import sliderImage4 from "../assets/images/arts_crafts_images10.jpg"
 import "animate.css";
 import { AuthContext } from "../AuthProvider/AuthProvider"
 import ArtAndCategorySection from "../Components/ArtAndCategorySection"
+import CraftItems from "../Components/CraftItems"
 
 const Home = () => {
 
@@ -131,6 +132,11 @@ const Home = () => {
             </a>
           </div>
         </div>
+
+
+        {/* Craft Items */}
+
+        <CraftItems></CraftItems>
 
         {/* Art & Category Section */}
 
