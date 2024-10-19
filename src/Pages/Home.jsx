@@ -9,7 +9,6 @@ import "animate.css";
 import { AuthContext } from "../AuthProvider/AuthProvider"
 import ArtAndCategorySection from "../Components/ArtAndCategorySection"
 import CraftItems from "../Components/CraftItems"
-import Footer from "../Components/Footer"
 import OurMordernArtist from "../Components/OurMordernArtist"
 import MagicWithSpaceAndColor from "../Components/MagicWithSpaceAndColor"
 
@@ -153,9 +152,7 @@ const Home = () => {
         <MagicWithSpaceAndColor></MagicWithSpaceAndColor>
 
 
-        {/* Footer */}
-
-        <Footer></Footer>
+        
       </div>
     );
 };

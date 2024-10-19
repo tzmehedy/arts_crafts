@@ -5,7 +5,7 @@ const ArtAndCategorySectionCard = ({ subCategory }) => {
     const { subcategory_name , image} = subCategory;
   return (
     <Link to={`/${subcategory_name}`} className=''>
-      <div className="bg-gray-300 rounded-lg image-full w-64 md:w-96 shadow-xl p-5">
+      <div className="bg-gray-200 rounded-lg image-full w-64 md:w-96 shadow-xl p-5">
         <figure>
           <img className="w-full max-h-48 rounded-lg" src={image} />
         </figure>

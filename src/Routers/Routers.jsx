@@ -9,6 +9,7 @@ import MyArtCraftList from "../Pages/MyArtCraftList";
 import AllArtsCrafts from "../Pages/AllArtsCrafts";
 import Update from "../Pages/Update";
 import SubCategoryList from "../Pages/SubCategoryList";
+import Details from "../Pages/Details";
 
 
 const router = createBrowserRouter([
@@ -60,7 +61,14 @@ const router = createBrowserRouter([
         path: "/:subcategory_name",
         element: <SubCategoryList></SubCategoryList>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/${params.subcategory_name}`),
+          fetch(`http://localhost:5000/${params.subcategory_name}`)
+      },
+
+      {
+        path: "/details/:id",
+        element: <Details></Details>,
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/details/${params.id}`),
       },
     ],
   },
