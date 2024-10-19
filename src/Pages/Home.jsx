@@ -9,6 +9,7 @@ import "animate.css";
 import { AuthContext } from "../AuthProvider/AuthProvider"
 import ArtAndCategorySection from "../Components/ArtAndCategorySection"
 import CraftItems from "../Components/CraftItems"
+import Footer from "../Components/Footer"
 
 const Home = () => {
 
@@ -141,6 +142,11 @@ const Home = () => {
         {/* Art & Category Section */}
 
         <ArtAndCategorySection></ArtAndCategorySection>
+
+
+        {/* Footer */}
+
+        <Footer></Footer>
       </div>
     );
 };

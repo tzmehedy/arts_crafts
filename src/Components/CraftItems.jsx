@@ -14,13 +14,26 @@ const CraftItems = () => {
       <div>
         <h1 className="text-3xl font-bold text-center mt-10">Craft Item</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 m-10">
-          {allArtsAndCrafts.map((allArtsAndCraft) => (
+          {allArtsAndCrafts.slice(0, 6).map((allArtsAndCraft) => (
             <AllArtsCraftsCard
               key={allArtsAndCraft._id}
               artAndCraft={allArtsAndCraft}
             ></AllArtsCraftsCard>
+
           ))}
         </div>
+        <div className="text-center">
+            {
+                allArtsAndCrafts.length>6 ? <Link
+            to={"/allArtsAndCrafts"}
+            className="btn btn-secondary text-black font-bold"
+          >
+            Show All
+          </Link> : ""
+            }
+          
+        </div>
+
       </div>
     );
 };
