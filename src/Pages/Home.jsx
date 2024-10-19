@@ -11,6 +11,7 @@ import ArtAndCategorySection from "../Components/ArtAndCategorySection"
 import CraftItems from "../Components/CraftItems"
 import Footer from "../Components/Footer"
 import OurMordernArtist from "../Components/OurMordernArtist"
+import MagicWithSpaceAndColor from "../Components/MagicWithSpaceAndColor"
 
 const Home = () => {
 
@@ -146,6 +147,10 @@ const Home = () => {
 
         {/* Modern Artist */}
         <OurMordernArtist></OurMordernArtist>
+
+        {/* Magic with space and color */}
+
+        <MagicWithSpaceAndColor></MagicWithSpaceAndColor>
 
 
         {/* Footer */}

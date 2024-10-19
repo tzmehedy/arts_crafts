@@ -15,7 +15,7 @@ const OurMordernArtist = () => {
           style={{ backgroundImage: `url(${bgImg})` }}
         >
           <div className="h-[500px]">
-            <h1 className='text-3xl text-center text-white font-bold'>Our Artist</h1>
+            <h1 className='text-3xl text-center text-white font-bold'>Our Modern Artist</h1>
             <div className="flex justify-evenly space-x-5 items-center p-5 mt-10">
               <div>
                 <img className="max-h-72" src={artist1} alt="" />
