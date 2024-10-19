@@ -10,6 +10,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider"
 import ArtAndCategorySection from "../Components/ArtAndCategorySection"
 import CraftItems from "../Components/CraftItems"
 import Footer from "../Components/Footer"
+import OurMordernArtist from "../Components/OurMordernArtist"
 
 const Home = () => {
 
@@ -142,6 +143,9 @@ const Home = () => {
         {/* Art & Category Section */}
 
         <ArtAndCategorySection></ArtAndCategorySection>
+
+        {/* Modern Artist */}
+        <OurMordernArtist></OurMordernArtist>
 
 
         {/* Footer */}
