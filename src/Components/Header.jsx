@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/arts_crafts_images01.png"
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,9 +9,9 @@ import dummyUserImage from "../../src/assets/images/istockphoto-1337144146-612x6
 
 const Header = () => {
   const { user, userLogout } = useContext(AuthContext);
+  const [theme, setTheme] = useState();
 
-  console.log(user)
-
+  
   const handelLogout = () =>{
     userLogout()
     .then(result=>{
@@ -20,8 +20,23 @@ const Header = () => {
     .catch(error=>{
       console.log(error)
     })
-
   }
+
+
+  const handelTheme = (e) =>{
+    if(e.target.checked){
+      setTheme("retro")
+    }
+    else{
+      setTheme("light")
+    }
+  }
+
+  useEffect(()=>{
+    localStorage.setItem("theme",theme)
+    const localStorageTheme = localStorage.getItem("theme")
+    document.querySelector("html").setAttribute("data-theme", localStorageTheme)
+  },[theme])
     const navLinks = (
       <>
         <li>
@@ -36,6 +51,7 @@ const Header = () => {
         <li>
           <NavLink to={"/myArtCraftList"}>My Art&Craft List</NavLink>
         </li>
+        
       </>
     );
     return (
@@ -102,6 +118,43 @@ const Header = () => {
               </Link>
             )}
           </div>
+
+          <label className="grid cursor-pointer place-items-center ml-2">
+            <input
+              type="checkbox"
+              onChange={handelTheme}
+              className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
+            />
+            <svg
+              className="stroke-base-100 fill-base-100 col-start-1 row-start-1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+            </svg>
+            <svg
+              className="stroke-base-100 fill-base-100 col-start-2 row-start-1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </label>
         </div>
       </div>
     );
